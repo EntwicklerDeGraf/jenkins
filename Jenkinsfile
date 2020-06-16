@@ -26,7 +26,7 @@ pipeline {
         }
     }
     post {
-        alway {
+        always {
             echo 'The Pipline is finished...'
         }
         success {
