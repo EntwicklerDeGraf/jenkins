@@ -21,7 +21,19 @@ pipeline {
                 timeout(time: 10, unit: 'SECONDS') {
                     sh 'echo "Waiting for 10 seconds"'
                 }
+                
             }
+        }
+    }
+    post {
+        alway {
+            echo 'The Pipline is finished...'
+        }
+        success {
+            echo '  successfully'
+        }
+        failure {
+            echo '  with errors'
         }
     }
 }
