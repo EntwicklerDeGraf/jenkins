@@ -13,7 +13,7 @@ pipeline {
         stage('deploy') {
             steps {
                 sh "echo 'This is a deployment step'"
-                
+                sh 'chown jenkins:jenkins simpleScript.sh'
                 retry(3) {
                     sh './simpleScript.sh'
                 }
