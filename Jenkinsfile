@@ -13,6 +13,13 @@ pipeline {
         stage('deploy') {
             steps {
                 sh "echo 'This is a deployment step'"
+                
+                retry(3) {
+                    sh './simpleScript.sh'
+                }
+                timeout(time: 10, unit: 'SECONDS') {
+                    sh 'echo "Waiting for 10 seconds"'
+                }
             }
         }
     }
