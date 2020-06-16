@@ -10,5 +10,10 @@ pipeline {
                 '''
             }
         }
+        stage('deploy') {
+            steps {
+                sh "echo 'This is a deployment step'"
+            }
+        }
     }
 }
