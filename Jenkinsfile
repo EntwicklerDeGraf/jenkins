@@ -15,7 +15,7 @@ pipeline {
                 sh "echo 'This is a deployment step'"
                 sh 'chown jenkins:jenkins simpleScript.sh'
                 retry(3) {
-                    sh './simpleScript.sh'
+                    sh 'echo "it is repeated several times"'
                 }
                 timeout(time: 10, unit: 'SECONDS') {
                     sh 'echo "Waiting for 10 seconds"'
