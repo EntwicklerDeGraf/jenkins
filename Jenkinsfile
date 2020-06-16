@@ -13,8 +13,10 @@ pipeline {
         stage('deploy') {
             steps {
                 sh "echo 'This is a deployment step'"
+                sh 'chmod +x simpleScript.sh'
                 retry(3) {
                     sh 'echo "it is repeated several times"'
+                    sh './simpleScript.sh'
                 }
                 timeout(time: 10, unit: 'SECONDS') {
                     sh 'echo "Waiting for 10 seconds"'
